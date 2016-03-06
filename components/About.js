@@ -5,7 +5,8 @@ import React, {
   Animated,
   Dimensions,
   Easing,
-  View
+  View,
+  ScrollView
 } from 'react-native'
 
 class About extends Component {
@@ -38,8 +39,13 @@ class About extends Component {
         <Animated.View
           pointerEvents={this.state.showingAbout ? 'auto' : 'none'}
           style={[styles.textView, {width, height}, {opacity: this.state.opacity}]}>
+          <ScrollView style={{width, height, paddingTop: 22}}>
+            <Text style={styles.text}>bla bla bla</Text>
+            <Text style={styles.text}>bla bla bla</Text>
+            <Text style={styles.text}>bla bla bla</Text>
+            <Text style={styles.text}>bla bla bla</Text>
+          </ScrollView>
           <Text style={styles.closeButton} onPress={this.hideAbout.bind(this)}>x</Text>
-          <Text style={styles.text}>bla bla bla</Text>
         </Animated.View>
       </View>
     )
@@ -120,7 +126,6 @@ const styles = StyleSheet.create({
   },
   textView: {
     position: 'absolute',
-    paddingTop: 22,
     backgroundColor: '#B85667'
   },
   text: {
