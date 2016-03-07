@@ -1,22 +1,56 @@
 import React, {
   Component,
   Image,
-  StyleSheet
+  StyleSheet,
+  View,
+  // Text,
+  TouchableWithoutFeedback
 } from 'react-native'
+// import {color} from './colors'
+import Speech from './SpeakFunction'
+
+const quotes = [
+  'Make America Great Again!',
+  'The point is, you can never be too greedy.',
+  'My IQ is one of the highest — and you all know it! Please don\'t feel so stupid or insecure; it\'s not your fault.',
+  'You know, it really doesn’t matter what the media write as long as you’ve got a young, beautiful piece of ass.',
+  'All of the women on The Apprentice flirted with me – consciously or unconsciously. That’s to be expected.',
+  'One of they key problems today is that politics is such a disgrace. Good people don’t go into government.',
+  'The beauty of me is that I’m very rich.',
+  'It’s freezing and snowing in New York – we need global warming!',
+  'I have never seen a thin person drinking Diet Coke.'
+]
+
+// <Text style={styles.text}>{this.state.tap >= 13 && quotes[this.state.tap % quotes.length]}</Text>
 
 class Virus extends Component {
   constructor () {
     super()
-    this.state = {showLoop: false}
+    this.state = {
+      showLoop: false,
+      tap: 0
+    }
     return
   }
 
   render () {
     return (
-      <Image style={styles.image}
-        onLoadEnd={() => setTimeout(() => this.setState({showLoop: true}), 2700)}
-        source={this.state.showLoop ? require('../images/loop.gif') : require('../images/intro.gif')}/>
+      <View>
+        <TouchableWithoutFeedback onPress={this.handlePress.bind(this)}>
+          <Image style={styles.image}
+            onLoadEnd={() => setTimeout(() => this.setState({showLoop: true}), 2700)}
+            source={this.state.showLoop ? require('../images/loop.gif') : require('../images/intro.gif')}/>
+        </TouchableWithoutFeedback>
+      </View>
     )
+  }
+
+  handlePress () {
+    this.setState({tap: this.state.tap + 1}, () => {
+      if (this.state.tap >= 9) {
+        Speech(quotes[this.state.tap % quotes.length])
+      }
+    })
   }
 }
 
@@ -24,7 +58,13 @@ const styles = StyleSheet.create({
   image: {
     width: 400,
     height: 400
-  }
+  }// ,
+  // text: {
+  //   fontSize: 20,
+  //   textAlign: 'center',
+  //   margin: 20,
+  //   color
+  // }
 })
 
 export default Virus
