@@ -15,13 +15,32 @@ class About extends Component {
     super()
     this.state = {
       showingAbout: false,
-      size: new Animated.Value(26),
-      radius: new Animated.Value(13),
-      x: new Animated.Value(10),
-      y: new Animated.Value(30),
+      size: new Animated.Value(0),
+      radius: new Animated.Value(0),
+      x: new Animated.Value(23),
+      y: new Animated.Value(43),
       opacity: new Animated.Value(0)
     }
     return
+  }
+
+  componentDidMount () {
+    Animated.spring(
+      this.state.size,
+      {toValue: 26, tension: 1.2, friction: 2.5},
+    ).start()
+    Animated.spring(
+      this.state.radius,
+      {toValue: 13, tension: 1.2, friction: 2.5},
+    ).start()
+    Animated.spring(
+      this.state.x,
+      {toValue: 10, tension: 1.2, friction: 2.5},
+    ).start()
+    Animated.spring(
+      this.state.y,
+      {toValue: 30, tension: 1.2, friction: 2.5},
+    ).start()
   }
 
   render () {

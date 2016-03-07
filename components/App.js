@@ -2,13 +2,13 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View,
-  ActionSheetIOS
+  View
 } from 'react-native'
 import {color, backgroundColor} from './colors'
 
 import Virus from './Virus'
 import About from './About'
+import Share from './ShareButton'
 
 class App extends Component {
   render () {
@@ -18,37 +18,16 @@ class App extends Component {
           You have been infected by a Lying-Dormant Cyber Pathogen™
         </Text>
         <Virus />
-        <Text onPress={this.showShareActionSheet} style={styles.button}>
-          SPREAD THE PATHOGEN
-        </Text>
+        <Share />
         <About />
       </View>
     )
-  }
-
-  showShareActionSheet () {
-    ActionSheetIOS.showShareActionSheetWithOptions({
-      url: 'https://code.facebook.com',
-      message: 'message to go with the shared url',
-      subject: 'a subject to go in the email heading'
-    },
-    (error) => {
-      console.error(error)
-    },
-    (success, method) => {
-      if (success) {
-        console.log(`Shared via ${method}`)
-      } else {
-        console.log('You didn\'t share')
-      }
-    })
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor
   },
@@ -58,17 +37,6 @@ const styles = StyleSheet.create({
     margin: 20,
     marginTop: 70,
     color
-  },
-  button: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginBottom: 0,
-    fontWeight: '500',
-    height: 80,
-    color: backgroundColor,
-    backgroundColor: color,
-    lineHeight: 50,
-    alignSelf: 'stretch'
   }
 })
 
