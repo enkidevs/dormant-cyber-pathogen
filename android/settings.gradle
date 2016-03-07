@@ -1,3 +1,4 @@
 rootProject.name = 'dormantCyberPathogen'
 
-include ':app'
+include ':react-native-share', ':app'
+project(':react-native-share').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-share/android')

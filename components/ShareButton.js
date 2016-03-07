@@ -3,12 +3,12 @@ import React, {
   StyleSheet,
   Text,
   Animated,
-  ActionSheetIOS,
   Dimensions
 } from 'react-native'
+import share from './ShareFunction'
 import {color, backgroundColor} from './colors'
 
-class Share extends Component {
+class ShareButton extends Component {
   constructor () {
     super()
     this.state = {
@@ -29,29 +29,11 @@ class Share extends Component {
     return (
       <Animated.View
         style={[styles.buttonWrapper, {bottom: this.state.bottom, width}]}>
-        <Text onPress={this.showShareActionSheet} style={styles.button}>
+        <Text onPress={share} style={styles.button}>
           SPREAD THE PATHOGEN
         </Text>
       </Animated.View>
     )
-  }
-
-  showShareActionSheet () {
-    ActionSheetIOS.showShareActionSheetWithOptions({
-      url: 'https://code.facebook.com',
-      message: 'message to go with the shared url',
-      subject: 'a subject to go in the email heading'
-    },
-    (error) => {
-      console.error(error)
-    },
-    (success, method) => {
-      if (success) {
-        console.log(`Shared via ${method}`)
-      } else {
-        console.log('You didn\'t share')
-      }
-    })
   }
 }
 
@@ -71,4 +53,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Share
+export default ShareButton
