@@ -3,7 +3,8 @@ import React, {
   StyleSheet,
   Text,
   Animated,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from 'react-native'
 import share from './ShareFunction'
 import {color, backgroundColor} from './colors'
@@ -29,9 +30,11 @@ class ShareButton extends Component {
     return (
       <Animated.View
         style={[styles.buttonWrapper, {bottom: this.state.bottom, width}]}>
-        <Text onPress={share} style={styles.button}>
-          SPREAD THE PATHOGEN
-        </Text>
+        <TouchableOpacity onPress={share} style={styles.touchable}>
+          <Text style={styles.button}>
+            SPREAD THE PATHOGEN
+          </Text>
+        </TouchableOpacity>
       </Animated.View>
     )
   }
@@ -48,8 +51,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     height: 100,
     color: backgroundColor,
-    backgroundColor: color,
-    lineHeight: 50
+    lineHeight: 50,
+    backgroundColor: color
+  },
+  touchable: {
+    height: 100
   }
 })
 

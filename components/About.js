@@ -46,7 +46,7 @@ class About extends Component {
   render () {
     const {height, width} = Dimensions.get('window')
     return (
-      <View style={{position: 'absolute', width, height, top: 0, left: 0}}>
+      <View style={{position: 'absolute', width, height, top: 0, left: 0}} pointerEvents='box-none'>
         <Animated.View
           style={[styles.aboutView, {
             top: this.state.y,
