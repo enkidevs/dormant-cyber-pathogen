@@ -60,10 +60,28 @@ class About extends Component {
           pointerEvents={this.state.showingAbout ? 'auto' : 'none'}
           style={[styles.textView, {width, height}, {opacity: this.state.opacity}]}>
           <ScrollView style={{width, height, paddingTop: 22}}>
-            <Text style={styles.text}>bla bla bla</Text>
-            <Text style={styles.text}>bla bla bla</Text>
-            <Text style={styles.text}>bla bla bla</Text>
-            <Text style={styles.text}>bla bla bla</Text>
+            <Text style={styles.text}>What is the Dormant Cyber Pathogen?</Text>
+            <Text style={styles.text}>A ‘cyber pathogen’ that ‘lies dormant’ within an iPhone previously owned by the terrorists that attacked San Bernardino in December 2015 is about to unleash chaos onto the county’s infrastructure. Well, according to San Bernardino’s DA.</Text>
+            <Text style={styles.text}>But don’t worry. Unless we’re talking about an episode of CSI: Cyber, it probably isn’t. And I’d hope that even CSI: Cyber wouldn’t introduce something that sounds so silly, given that the top result on Google for ‘cyber pathogen’ was previously Harry Potter fiction. </Text>
+            <Text style={styles.text}>Sound stupid. Why should I care about it?</Text>
+
+            <Text style={styles.text}>San Bernardino's DA claims Apple must assist the FBI in unlocking the phone because an alleged security threat might have been "introduced by its product and concealed by its operating system."</Text>
+
+            <Text style={styles.text}>However, Ars Technica quoted iPhone forensics expert Jonathan Zdziarski saying the DA’s warning equates to a “magical unicorn might exist on this phone”. </Text>
+
+            <Text style={styles.text}>In fact, the entire tech has ridiculed law enforcement for their statements regarding the ongoing Apple court battle where press releases are often putting marketing ahead of technical correctness.</Text>
+
+            <Text style={styles.text}> “Cyber pathogens are so unspeakably dangerous that the open research community has wisely never published a single paper about them.” - ‎@mattblaze</Text>
+
+            <Text style={styles.text}> I installed this app and it says I’m infected! Is this bad?</Text>
+
+            <Text style={styles.text}>No. We wondered how long it would take for a real Cyber Pathogen to spread across the world. Unfortunately, just like the iPhone in Apple vs. FBI, this Cyber Pathogen does absolutely nothing of harm. Well, unless you find the secret button - but then it’s only harmful to your sanity.</Text>
+
+            <Text style={styles.text}> So, what’s the point?</Text>
+
+            <Text style={styles.text}>Education is important. In this case, as with many others, it is clear law enforcement had no access to anyone with real expertise (or, simply chose not to consult them) before releasing statements that to the informed sound silly, but to the uninformed sound scary.</Text>
+
+            <Text style={styles.text}>Wilful ignorance on security is wilful neglect for our safety and privacy.</Text>
           </ScrollView>
           <Text style={styles.closeButton} onPress={this.hideAbout.bind(this)}>x</Text>
         </Animated.View>

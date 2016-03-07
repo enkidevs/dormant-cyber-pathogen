@@ -9,6 +9,7 @@ import {color, backgroundColor} from './colors'
 import Virus from './Virus'
 import About from './About'
 import Share from './ShareButton'
+import Counter from './Counter'
 
 class App extends Component {
   render () {
@@ -18,6 +19,7 @@ class App extends Component {
           You have been infected by a Lying-Dormant Cyber Pathogen™
         </Text>
         <Virus />
+        <Counter />
         <Share />
         <About />
       </View>
