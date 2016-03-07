@@ -5,6 +5,7 @@ import React, {
   View,
   ActionSheetIOS
 } from 'react-native'
+import {color, backgroundColor} from './colors'
 
 import Virus from './Virus'
 import About from './About'
@@ -14,7 +15,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          You have been infected by a Dormant Cyber Pathogen™
+          You have been infected by a Lying-Dormant Cyber Pathogen™
         </Text>
         <Virus />
         <Text onPress={this.showShareActionSheet} style={styles.button}>
@@ -49,14 +50,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F2F3CB'
+    backgroundColor
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 20,
     marginTop: 70,
-    color: '#B85667'
+    color
   },
   button: {
     fontSize: 20,
@@ -64,8 +65,8 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     fontWeight: '500',
     height: 80,
-    color: '#F2F3CB',
-    backgroundColor: '#B85667',
+    color: backgroundColor,
+    backgroundColor: color,
     lineHeight: 50,
     alignSelf: 'stretch'
   }

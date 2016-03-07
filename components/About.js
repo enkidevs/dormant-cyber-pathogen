@@ -8,6 +8,7 @@ import React, {
   View,
   ScrollView
 } from 'react-native'
+import {color as backgroundColor, backgroundColor as color} from './colors'
 
 class About extends Component {
   constructor () {
@@ -116,26 +117,35 @@ class About extends Component {
 const styles = StyleSheet.create({
   aboutView: {
     position: 'absolute',
-    backgroundColor: '#B85667'
+    backgroundColor
   },
   aboutButton: {
-    color: '#F2F3CB',
+    color,
     textAlign: 'center',
-    paddingTop: 5,
+    position: 'relative',
+    height: 44,
+    width: 44,
+    left: -9,
+    top: -9,
+    paddingTop: 14,
     backgroundColor: 'transparent'
   },
   textView: {
     position: 'absolute',
-    backgroundColor: '#B85667'
+    backgroundColor
   },
   text: {
-    color: '#F2F3CB'
+    color
   },
   closeButton: {
     position: 'absolute',
-    top: 30,
-    right: 10,
-    color: '#F2F3CB'
+    textAlign: 'center',
+    height: 44,
+    width: 44,
+    top: 21,
+    right: 1,
+    paddingTop: 14,
+    color
   }
 })
 
