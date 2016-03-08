@@ -1,15 +1,14 @@
 import React, {
   Component,
-  TouchableHighlight,
-  Linking
+  Linking,
+  Text
 } from 'react-native'
+import {backgroundColor as color} from './colors'
 
 class Link extends Component {
   render () {
     return (
-      <TouchableHighlight onPress={this.handlePress.bind(this)}>
-        {this.props.children}
-      </TouchableHighlight>
+      <Text onPress={this.handlePress.bind(this)} style={{borderBottomWidth: 1, borderBottomColor: color, textDecorationLine: 'underline', textDecorationColor: color}}>{this.props.children}</Text>
     )
   }
 
@@ -19,8 +18,8 @@ class Link extends Component {
 }
 
 Link.propTypes = {
-  href: React.propTypes.string,
-  children: React.propTypes.node
+  href: React.PropTypes.string,
+  children: React.PropTypes.node
 }
 
 export default Link

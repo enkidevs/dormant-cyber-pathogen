@@ -2,6 +2,7 @@ import React, {
   Component,
   Text
 } from 'react-native'
+import {color} from './colors'
 
 class Counter extends Component {
   constructor () {
@@ -21,8 +22,8 @@ class Counter extends Component {
 
   render () {
     return (
-      <Text>
-        {Math.pow(2, this.state.date - 1457393526982) / 2} infected already
+      <Text style={{color}}>
+        {((Math.pow(2, (this.state.date - 1457393526982) / 777600000) - 1) * 400000 + 18000).toFixed(0)} infected already
       </Text>
     )
   }

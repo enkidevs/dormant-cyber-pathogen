@@ -8,6 +8,7 @@ import React, {
   View,
   ScrollView
 } from 'react-native'
+import Link from './Link'
 import {color as backgroundColor, backgroundColor as color} from './colors'
 
 class About extends Component {
@@ -60,24 +61,25 @@ class About extends Component {
           pointerEvents={this.state.showingAbout ? 'auto' : 'none'}
           style={[styles.textView, {width, height}, {opacity: this.state.opacity}]}>
           <ScrollView style={{width, height, paddingTop: 22}}>
-            <Text style={styles.text}>What is the Dormant Cyber Pathogen?</Text>
-            <Text style={styles.text}>A ‘cyber pathogen’ that ‘lies dormant’ within an iPhone previously owned by the terrorists that attacked San Bernardino in December 2015 is about to unleash chaos onto the county’s infrastructure. Well, according to San Bernardino’s DA.</Text>
-            <Text style={styles.text}>But don’t worry. Unless we’re talking about an episode of CSI: Cyber, it probably isn’t. And I’d hope that even CSI: Cyber wouldn’t introduce something that sounds so silly, given that the top result on Google for ‘cyber pathogen’ was previously Harry Potter fiction. </Text>
-            <Text style={styles.text}>Sound stupid. Why should I care about it?</Text>
+            <Text style={styles.title}>What is the Dormant Cyber Pathogen?</Text>
+            <Text style={styles.text}>A <Link href='http://www.theguardian.com/technology/2016/mar/04/san-bernardino-da-baffles-security-community-lying-dormant-cyber-pathogen-iphone'>‘cyber pathogen’</Link> that <Link href='http://www.theguardian.com/technology/2016/mar/04/san-bernardino-da-baffles-security-community-lying-dormant-cyber-pathogen-iphone'>‘lies dormant’</Link> within an iPhone previously owned by the terrorists that attacked San Bernardino in December 2015 is about to unleash chaos onto the county’s infrastructure. Well, according to San Bernardino’s DA.</Text>
+            <Text style={styles.text}>But don’t worry. Unless we’re talking about an episode of CSI: Cyber, it probably isn’t. And I’d hope that even CSI: Cyber wouldn’t introduce something that sounds so silly, given that the top result on Google for ‘cyber pathogen’ was previously <Link href='https://twitter.com/JZdziarski/status/705582216051597312'>Harry Potter fiction</Link>. </Text>
 
-            <Text style={styles.text}>San Bernardino's DA claims Apple must assist the FBI in unlocking the phone because an alleged security threat might have been "introduced by its product and concealed by its operating system."</Text>
+            <Text style={styles.title}>Sound stupid. Why should I care about it?</Text>
+
+            <Text style={styles.text}>San Bernardino's DA claims <Link href='http://arstechnica.com/tech-policy/2016/03/what-is-a-lying-dormant-cyber-pathogen-san-bernardino-da-wont-say/'>Apple must assist the FBI in unlocking the phone because an alleged security threat might have been "introduced by its product and concealed by its operating system."</Link></Text>
 
             <Text style={styles.text}>However, Ars Technica quoted iPhone forensics expert Jonathan Zdziarski saying the DA’s warning equates to a “magical unicorn might exist on this phone”. </Text>
 
             <Text style={styles.text}>In fact, the entire tech has ridiculed law enforcement for their statements regarding the ongoing Apple court battle where press releases are often putting marketing ahead of technical correctness.</Text>
 
-            <Text style={styles.text}> “Cyber pathogens are so unspeakably dangerous that the open research community has wisely never published a single paper about them.” - ‎@mattblaze</Text>
+            <Text style={styles.text}> “Cyber pathogens are so unspeakably dangerous that the open research community has wisely never published a single paper about them.” - ‎<Link href='https://twitter.com/mattblaze'>@mattblaze</Link></Text>
 
-            <Text style={styles.text}> I installed this app and it says I’m infected! Is this bad?</Text>
+            <Text style={styles.title}> I installed this app and it says I’m infected! Is this bad?</Text>
 
             <Text style={styles.text}>No. We wondered how long it would take for a real Cyber Pathogen to spread across the world. Unfortunately, just like the iPhone in Apple vs. FBI, this Cyber Pathogen does absolutely nothing of harm. Well, unless you find the secret button - but then it’s only harmful to your sanity.</Text>
 
-            <Text style={styles.text}> So, what’s the point?</Text>
+            <Text style={styles.title}> So, what’s the point?</Text>
 
             <Text style={styles.text}>Education is important. In this case, as with many others, it is clear law enforcement had no access to anyone with real expertise (or, simply chose not to consult them) before releasing statements that to the informed sound silly, but to the uninformed sound scary.</Text>
 
@@ -172,7 +174,10 @@ const styles = StyleSheet.create({
     backgroundColor
   },
   text: {
-    color
+    color,
+    fontSize: 15,
+    lineHeight: 20,
+    margin: 12
   },
   closeButton: {
     position: 'absolute',
@@ -182,6 +187,13 @@ const styles = StyleSheet.create({
     top: 21,
     right: 1,
     paddingTop: 14,
+    color,
+    backgroundColor: 'transparent'
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 20,
     color
   }
 })
