@@ -3,10 +3,10 @@ import React, {
   Image,
   StyleSheet,
   View,
-  // Text,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Dimensions
 } from 'react-native'
-// import {color} from './colors'
+
 import Speech from './SpeakFunction'
 
 const quotes = [
@@ -21,8 +21,6 @@ const quotes = [
   'I have never seen a thin person drinking Diet Coke.'
 ]
 
-// <Text style={styles.text}>{this.state.tap >= 13 && quotes[this.state.tap % quotes.length]}</Text>
-
 class Virus extends Component {
   constructor () {
     super()
@@ -34,12 +32,20 @@ class Virus extends Component {
   }
 
   render () {
+    const {width, height} = Dimensions.get('window')
+    const imageHeight = Math.min(400, height - 117 - 162)
+    const imageWidth = imageHeight / 400 * 275
+    const left = (width - imageWidth) / 2
     return (
-      <View>
-        <TouchableWithoutFeedback onPress={this.handlePress.bind(this)}>
-          <Image style={styles.image}
+      <View style={{position: 'relative', width}}>
+        <TouchableWithoutFeedback style={styles.wrapper} onPress={this.handlePress.bind(this)}>
+          <Image style={[styles.image, {opacity: this.state.showLoop ? 0 : 1, height: imageHeight, width: imageWidth, left}]}
             onLoadEnd={() => setTimeout(() => this.setState({showLoop: true}), 2700)}
-            source={this.state.showLoop ? require('../images/loop.gif') : require('../images/intro.gif')}/>
+            source={require('../images/intro_opti.gif')}/>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback style={styles.wrapper} onPress={this.handlePress.bind(this)}>
+          <Image style={[styles.image, {opacity: this.state.showLoop ? 1 : 0, height: imageHeight, width: imageWidth, left}]}
+            source={require('../images/loop_opti.gif')}/>
         </TouchableWithoutFeedback>
       </View>
     )
@@ -55,9 +61,13 @@ class Virus extends Component {
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    position: 'absolute',
+    top: 0
+  },
   image: {
-    width: 400,
-    height: 400
+    position: 'absolute',
+    top: 0
   }// ,
   // text: {
   //   fontSize: 20,

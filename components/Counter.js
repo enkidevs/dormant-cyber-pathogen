@@ -1,6 +1,7 @@
 import React, {
   Component,
-  Text
+  Text,
+  Dimensions
 } from 'react-native'
 import {color} from './colors'
 
@@ -21,8 +22,9 @@ class Counter extends Component {
   }
 
   render () {
+    const {width} = Dimensions.get('window')
     return (
-      <Text style={{color}}>
+      <Text style={{width, color, textAlign: 'center', position: 'absolute', bottom: 100}}>
         {((Math.pow(2, (this.state.date - 1457393526982) / 777600000) - 1) * 400000 + 18000).toFixed(0)} infected already
       </Text>
     )
